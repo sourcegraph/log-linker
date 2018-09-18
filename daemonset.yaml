@@ -1,0 +1,34 @@
+kind: DaemonSet
+apiVersion: extensions/v1beta1
+metadata:
+  name: log-linker
+  namespace: kube-system
+  labels:
+    app: log-linker
+spec:
+  selector:
+    matchLabels:
+      app: log-linker
+  template:
+    metadata:
+      labels:
+        app: log-linker
+    spec:
+      containers:
+      - name: log-linker
+        image: us.gcr.io/sourcegraph-dev/log-linker:latest
+        command:
+        - /log-linker.sh
+        volumeMounts:
+        - name: var-lib-docker
+          mountPath: /var/lib/docker
+        - name: var-log
+          mountPath: /var/log
+      volumes:
+      - name: var-log
+        hostPath:
+          path: /var/log
+      - name: var-lib-docker
+        hostPath:
+          path: /var/lib/docker
+

@@ -1,8 +1,8 @@
 # log-linker
 
-This is a workaround for https://github.com/kubernetes/kubernetes/issues/52172. This code is copied
+This is a workaround for https://github.com/kubernetes/kubernetes/issues/52172. This code was copied
 from https://github.com/kubernetes/kubernetes/issues/52172#issuecomment-356085479 and written
-originally by @cjyar.
+originally by [Chris Jones (@cjyar)](https://github.com/cjyar).
 
 This script sets up symlinks from files in containers to host node files correctly in case kubelet
 does not create them successfully, which seems to happen when containers take a long time to start

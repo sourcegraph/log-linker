@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: log-linker
-        image: us.gcr.io/sourcegraph-dev/log-linker:latest
+        image: sourcegraph/log-linker:latest
         command:
         - /log-linker.sh
         volumeMounts:
